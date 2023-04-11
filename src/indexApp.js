@@ -18,4 +18,4 @@ app.use('/recipes',recipeRouter)
 
 db.connect()
 
-app.listen(PORT,()=>console.log('SERVER START'))
+app.listen(PORT,()=>console.log('SERVER START AT PORT: '+PORT))

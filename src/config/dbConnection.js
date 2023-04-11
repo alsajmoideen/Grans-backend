@@ -1,10 +1,9 @@
 require('dotenv').config()
 let { MongoClient } = require('mongodb')
-const mongo_username = process.env.MONGO_USERNAME;
-const mongo_password = process.env.MONGO_PASSWORD;
-const mongo_dbname = process.env.MONGO_DBNAME
+const mongoUrl = process.env.MONGO_DB_URL;
 
-var url=`mongodb+srv://${mongo_username}:${mongo_password}@recipeapp.2tcdzkr.mongodb.net/RecipeApp?retryWrites=true&w=majority`
+
+var url=mongoUrl
 const client=new MongoClient(url)
 
 let dbname
@@ -14,7 +13,7 @@ module.exports.connect=()=>{
     try{
         client.connect()
         console.log('Connection Successful')
-        dbname = mongo_dbname
+        dbname = 'recipe_DB'
     }catch(e){
         console.log(e)
     }
